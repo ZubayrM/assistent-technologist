@@ -13,10 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class NumberToUsersListDto {
-
-    private String number;
-
-    private UserDto chief;
+    private String shop;
 
     private List<UserDto> list = new ArrayList<>();
 

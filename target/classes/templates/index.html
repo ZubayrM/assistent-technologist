@@ -29,8 +29,8 @@
                         <b class="text-secondary">Контакты</b>
                         <ul th:each="user : ${user_list.allList}" class="list-group">
                             <li class="list-group-item" >
-                                <span class="text-justify " th:text="${user.number}">ololo</span>
-                                <span class="name" th:text="${user.chief.name}"></span>
+                                <span class="text-justify " th:text="'цех' + ${user.shop}">ololo</span>
+<!--                                <span class="name" th:text="${user.chief.name}"></span>-->
                                 <div class="btn-group dropdown d-flex justify-content-end">
                                     <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"  id="1"  aria-haspopup="true">
                                         бюро
@@ -39,7 +39,7 @@
 
 
                                         <div th:each="u : ${user.list}" class="list-group">
-                                            <a  th:text="${u.name}" th:attr="id = ${u.id}" th:href="'user/' + ${u.id} " class="list-group-item list-group-item-action" href="">
+                                            <a  th:text="${u.username}" th:attr="id = ${u.id}" th:href="'user/' + ${u.id} " class="list-group-item list-group-item-action" href="">
 
                                             </a>
                                         </div>

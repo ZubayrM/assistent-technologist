@@ -16,10 +16,7 @@ import project.model.Enums.Position;
 import project.model.User;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 
 @Service
@@ -39,28 +36,37 @@ public class UserService {
 
 
     public AllNumberListDto getUserList() {
-        List<User> all = userRepo.findAll();
         AllNumberListDto allNumberListDto = new AllNumberListDto();
-        Set<String> numberList = new HashSet<>();
-        for (User u: all){
-            numberList.add(u.getNumber());
+        Set<String> allShops = userRepo.findAllShops();
+        for (String shop: allShops){
+            NumberToUsersListDto dto = new  NumberToUsersListDto();
+            dto.setShop(shop);
+            dto.setList(userRepo.findAllUserByShop(shop));
+            allNumberListDto.getAllList().add(dto);
         }
-        for (String number: numberList){
-            NumberToUsersListDto numberToUsersListDto = new NumberToUsersListDto();
-            numberToUsersListDto.setNumber(number);
-            for (User u: all){
-                if (number!= null) {
-                    if (u.getNumber().equals(number)) {
-                        if (u.getPosition().equals(Position.CHIEF_OF_TB))
-                            numberToUsersListDto.setChief(new UserDto(u.getId(), u.getUsername()));
-                        else numberToUsersListDto.getList().add(new UserDto(u.getId(), u.getUsername()));
-                    }
-                }
-            }
-            allNumberListDto.getAllList().add(numberToUsersListDto);
-        }
-
         return allNumberListDto;
+
+//        List<User> all = userRepo.findAll();
+//        AllNumberListDto allNumberListDto = new AllNumberListDto();
+//        Set<String> numberList = new HashSet<>();
+//        for (User u: all){
+//            numberList.add(u.getShop());
+//        }
+//        for (String number: numberList){
+//            NumberToUsersListDto numberToUsersListDto = new NumberToUsersListDto();
+//            numberToUsersListDto.setShop(number);
+//            ArrayList<UserDto> user = new ArrayList();
+//            for (User u: all){
+//                if (number!= null) {
+//                    if (u.getNumber().equals(number)) {
+//                       user.add(new UserDto(u.getId(),u.getUsername()));
+//                    }
+//                }
+//            }
+//            allNumberListDto.getAllList().add(numberToUsersListDto);
+//        }
+//
+//        return allNumberListDto;
     }
 
     public User getUser() {

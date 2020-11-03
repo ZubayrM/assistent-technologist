@@ -11,9 +11,9 @@
     <body>
         <div  class="container-fluid p-5">
             <div class="row justify-content-md-center">
-                <form th:action="@{/regist}" method="post" id="reg">
+                <form th:action="@{/regist}" method="post" id="reg" class="was-validated">
                     <div class="input-group mb-3">
-                        <input type="text" name="name" value="" placeholder="name" aria-label="name" aria-describedby="basic-addon1" class="form-control is-invalid" required>
+                        <input type="text" name="name" value="" placeholder="name" aria-label="name" aria-describedby="basic-addon1" class="form-control " required>
                         <div class="input-group-prepend">
                             <span class="input-group-text bg-dark text-light ">имя</span>
                         </div>
@@ -33,28 +33,28 @@
                     </div>
 
                     <div class="input-group mb-3">
-                        <input type="text" name="number" value="" placeholder="number" class="form-control is-invalid" maxlength="4" required>
+                        <input type="text" name="number" value="" placeholder="number" class="form-control " maxlength="4" minlength="4" required>
                         <div class="input-group-prepend">
                             <span class="input-group-text text-light bg-dark">номер телефона</span>
                         </div>
                     </div>
 
                     <div class="input-group mb-3">
-                        <input type="text" name="shop" value="" placeholder="number" class="form-control is-invalid" maxlength="4" required>
+                        <input type="text" name="shop" value="" placeholder="number" class="form-control " maxlength="4" required>
                         <div class="input-group-prepend">
                             <span class="input-group-text text-light bg-dark">цех</span>
                         </div>
                     </div>
 
                     <div class="input-group mb-3">
-                        <input type="text" name="code" value="" placeholder="number" class="form-control is-invalid" required>
+                        <input type="text" name="code" value="" placeholder="number" class="form-control" required>
                         <div class="input-group-prepend">
                             <span class="input-group-text text-light bg-dark">денежный номер</span>
                         </div>
                     </div>
 
                     <div class="input-group mb-3">
-                        <input type="password" placeholder="password" class="form-control is-invalid" maxlength="6" name="password" required>
+                        <input type="password" placeholder="password" class="form-control " maxlength="6" minlength="2" name="password" required>
                         <div class="input-group-prepend">
                             <span class="input-group-text text-light bg-dark">пароль</span>
                         </div>

@@ -4,10 +4,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import project.dto.respons.list.UserDto;
 import project.model.User;
 import sun.awt.SunHints;
 
 import java.util.List;
+import java.util.Set;
 
 @Repository
 public interface UserRepo extends CrudRepository<User, Long> {
@@ -24,4 +26,10 @@ public interface UserRepo extends CrudRepository<User, Long> {
 
     @Query(value = "select * from User ", nativeQuery = true)
     List<User> findAll();
+
+    @Query(value = "select u.shop from User u", nativeQuery = true)
+    Set<String> findAllShops();
+
+    @Query(value = "select new project.dto.respons.list.UserDto( u.id, u.username) from User u where u.shop = ?1")
+    List<UserDto> findAllUserByShop(String shop);
 }
