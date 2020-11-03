@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<htnl xmlns:th="http://www.thyameleaf.org" >
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <meta charset="UTF-8">
+        <script src="js/script.js"></script>
+<!--        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+
+        <title>регистрация</title>
+    </head>
+    <body>
+        <div  class="container-fluid p-5">
+            <div class="row justify-content-md-center">
+                <form th:action="@{/regist}" method="post" id="reg" class="was-validated">
+                    <div class="input-group mb-3">
+                        <input type="text" name="name" value="" placeholder="name" aria-label="name" aria-describedby="basic-addon1" class="form-control " required>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-dark text-light ">имя</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="input-group mb-3">
+                        <select name="position" class="custom-select">
+                            <option value="CHIEF_OF_TB">начальник ТБ</option>
+                            <option value="TECHNOLOGIST">технолог</option>
+                            <option value="CONSTRUCTOR">конструктор</option>
+                        </select>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text text-light bg-dark">должность</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="text" name="number" value="" placeholder="number" class="form-control " maxlength="4" minlength="4" required>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text text-light bg-dark">номер телефона</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="text" name="shop" value="" placeholder="number" class="form-control " maxlength="4" required>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text text-light bg-dark">цех</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="text" name="code" value="" placeholder="number" class="form-control" required>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text text-light bg-dark">денежный номер</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="password" placeholder="password" class="form-control " maxlength="6" minlength="2" name="password" required>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text text-light bg-dark">пароль</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-secondary mr-3" onclick="registration()">зарегистрироваться</button>
+                    <a href="/login" class="btn btn-light">отмена</a>
+                </form>
+            </div>
+
+
+        </div>
+
+    </body>
+
+</htnl>
